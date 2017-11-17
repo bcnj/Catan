@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Button } from 'semantic-ui-react'
+import { Grid, Button, Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 export default () => (
@@ -9,7 +9,7 @@ export default () => (
         {/* this row contains game map, players, chat, log */}
         <Grid.Row>
             {/* this is the map */}
-            <Grid.Column textAlign={'left'} width={11}>
+            <Grid.Column textAlign={'left'} width={11} padded={'vertically'}>
                 <h1>TESTING 3</h1>
             </Grid.Column>
 
