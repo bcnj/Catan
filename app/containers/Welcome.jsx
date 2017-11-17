@@ -9,10 +9,12 @@ export default () => (
       <div className='mx-auto'>
         <div className='display-4 pb-3'> Settlers of Catan </div>
         <div>
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'around' }}>
             <Link to='/lobby'>
-              <Button color='green'> Join Game </Button></Link>
-            <Link to='/lobby'><Button color='red'> Create Game </Button></Link>
+              <Button secondary> Join Game </Button></Link>
+            <Link to='/lobby'>
+              <Button secondary> Create Game </Button>
+            </Link>
           </div>
         </div>
       </div>
