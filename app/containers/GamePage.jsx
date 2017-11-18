@@ -39,13 +39,15 @@ const GamePage = (props) => {
 
         <Grid>
             {/* this row contains game map, players, chat, log */}
-            <Grid.Row>
+            <Grid.Row
+                style={{ height: '80vh' }}
+            >
                 {/* this is the Konva map */}
                 <Grid.Column
                     textAlign={'center'}
+                    color={'red'}
                     width={11}
-                    padded={'true'}>
-                    <h1>TESTING 3</h1>
+                >
                     <Stage
                         ref={(thisStage) => { stage = thisStage; }}
                         onWheel={(e) => { handleWheel(e, stage); }}
@@ -60,13 +62,24 @@ const GamePage = (props) => {
                 </Grid.Column>
 
                 {/* this is the players, chat, and log menu */}
-                <Grid.Column width={5} padded={'true'}>
+                <Grid.Column
+                    textAlign={'center'}
+                    color={'blue'}
+                    width={5}
+                >
                     <h1>TESTING 3</h1>
                 </Grid.Column>
             </Grid.Row>
 
             {/* this row contains the players cards and action buttons */}
-            <Grid.Row>
+            <Grid.Row
+                style={{ height: '20vh' }}
+                color={'yellow'}
+            >
+                <h1>TESTING 3</h1>
+                <h2>TESTING 3</h2>
+                <h3>TESTING 3</h3>
+                <h1>TESTING 3</h1>
             </Grid.Row>
         </Grid>
     )
