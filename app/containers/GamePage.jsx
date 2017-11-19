@@ -118,14 +118,16 @@ class GamePage extends Component {
                     </Grid.Column>
                 </Grid.Row>
 
-                {/* ontains the players cards and action buttons */}
+                {/* contains the players table and action buttons */}
                 <Grid.Row
                     style={{ height: '20vh' }}
                     color={'yellow'}
                 >
+                    {/* players table column */}
                     <Grid.Column width={11} color={'black'}>
                     </Grid.Column>
 
+                    {/* action buttons column */}
                     <Grid.Column width={5} color={'grey'}>
                         <Grid.Row style={{ height: '50%' }}>
                             <BuildBtn />
