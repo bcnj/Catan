@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
-import { Grid, Button, Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { Stage } from 'react-konva'
-import { Menu, Segment } from 'semantic-ui-react'
+import { Container, Grid, Button, Menu, Segment } from 'semantic-ui-react'
 
 import Tiles from '../components/Tiles'
 import Intersections from '../components/Intersections'
 import Roads from '../components/Roads'
+
 import PlayerTab from '../components/PlayerTab'
 import MessageTab from '../components/MessageTab'
 import LogTab from '../components/LogTab'
 
+import BuildBtn from '../components/BuildBtn'
+import DevCardBtn from '../components/DevCardBtn'
+import EndTurnBtn from '../components/EndTurnBtn'
+import TradeBtn from '../components/TradeBtn'
 
 class GamePage extends Component {
 
@@ -23,6 +27,7 @@ class GamePage extends Component {
         this.handlePanelClick = this.handlePanelClick.bind(this)
     }
 
+    // function for board zooming
     handleWheel(thisEvent, thisStage) {
         let e = thisEvent.evt;
         let stage = thisStage._stage;
@@ -47,6 +52,7 @@ class GamePage extends Component {
         stage.batchDraw();
     }
 
+    // function for panel menu selection
     handlePanelClick(e, { name }) {
         this.setState({ activeItem: name })
     }
@@ -59,9 +65,10 @@ class GamePage extends Component {
         if (this.state.activeItem === 'players') { section = <PlayerTab />; }
         if (this.state.activeItem === 'messages') { section = <MessageTab />; }
         if (this.state.activeItem === 'log') { section = <LogTab />; }
-        
+
+        //local state governing current panel selection
         const { activeItem } = this.state
-        
+
         return (
 
             <Grid padded>
@@ -69,12 +76,13 @@ class GamePage extends Component {
                 <Grid.Row
                     style={{ height: '80vh' }}
                 >
-                    {/* this is the Konva map */}
+                    {/* Konva map column */}
                     <Grid.Column
                         textAlign={'center'}
                         color={'red'}
                         width={11}
                     >
+                        {/*do not abtract stage as separate component due to zoom and panning functions */}
                         <Stage
                             ref={(thisStage) => { this.stage = thisStage; }}
                             onWheel={(e) => { this.handleWheel(e, this.stage); }}
@@ -88,12 +96,13 @@ class GamePage extends Component {
                         </Stage>
                     </Grid.Column>
 
-                    {/* this is the players, chat, and log menu */}
+                    {/* right-side panel column */}
                     <Grid.Column
                         textAlign={'center'}
                         color={'blue'}
                         width={5}
                     >
+                        {/* do not abtract due to local state (unless we transition to using redux store) */}
                         <Menu pointing secondary>
                             <Menu.Item name='players' active={activeItem === 'players'} onClick={this.handlePanelClick} />
                             <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handlePanelClick} />
@@ -109,15 +118,25 @@ class GamePage extends Component {
                     </Grid.Column>
                 </Grid.Row>
 
-                {/* this row contains the players cards and action buttons */}
+                {/* ontains the players cards and action buttons */}
                 <Grid.Row
                     style={{ height: '20vh' }}
                     color={'yellow'}
                 >
-                    <h1>TESTING 3</h1>
-                    <h2>TESTING 3</h2>
-                    <h3>TESTING 3</h3>
-                    <h1>TESTING 3</h1>
+                    <Grid.Column width={11} color={'black'}>
+                    </Grid.Column>
+
+                    <Grid.Column width={5} color={'grey'}>
+                        <Grid.Row style={{ height: '50%' }}>
+                            <BuildBtn />
+                            <TradeBtn />
+                        </Grid.Row>
+
+                        <Grid.Row style={{ height: '50%' }}>
+                            <DevCardBtn />
+                            <EndTurnBtn />
+                        </Grid.Row>
+                    </Grid.Column>
                 </Grid.Row>
             </Grid>
         )
