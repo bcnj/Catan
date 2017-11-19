@@ -20,14 +20,19 @@ class MessageTab extends Component {
         const { message } = this.state
 
         return (
-            <Container style={{ height: '90%'}} >
-                <Segment style={{ height: '90%', color: 'black' }}>
+            <Container style={{ height: '90%' }} >
+                <Segment style={{ height: '90%' }}>
                     {/* all chat messages should appear in here */}
                 </Segment>
 
                 <Form onSubmit={this.handleMessageSubmit}>
-                    <Form.Group widths={'equal'} >
-                        <Form.Input placeholder='Message' message='message' value={message} onChange={this.handleMessageChange} />
+                    <Form.Group>
+                        <Form.Input
+                            placeholder='Message'
+                            message='message'
+                            value={message}
+                            onChange={this.handleMessageChange}
+                        />
                         <Form.Button content='Submit' />
                     </Form.Group>
                 </Form>

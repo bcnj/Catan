@@ -17,15 +17,16 @@
 //   display: flex;
 // }
 
-// .background-overlay {
-//   z-index: -2;
-//   left: 0;
-//   right: 0;
-//   top: 0;
-//   bottom: 0;
-//   width: 100vw;
-//   // height: auto;
-//   overflow: hidden;
-//   position: absolute;
-//   background-image: url('/assets/catan1.jpg');
-// }
+.background-overlay {
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  // height: auto;
+  overflow: hidden;
+  position: absolute;
+  background-image: url('/assets/catan1.jpg');
+  background-size: cover;
+}

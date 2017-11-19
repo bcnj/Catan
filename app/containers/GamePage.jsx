@@ -79,7 +79,7 @@ class GamePage extends Component {
                     {/* Konva map column */}
                     <Grid.Column
                         textAlign={'center'}
-                        color={'red'}
+                        // color={'red'}
                         width={11}
                     >
                         {/*do not abtract stage as separate component due to zoom and panning functions */}
@@ -89,6 +89,7 @@ class GamePage extends Component {
                             width={700}
                             height={640}
                             draggable={true}
+                            style={{ position: 'relative' }}
                         >
                             <Tiles />
                             <Intersections />
@@ -99,7 +100,7 @@ class GamePage extends Component {
                     {/* right-side panel column */}
                     <Grid.Column
                         textAlign={'center'}
-                        color={'blue'}
+                        // color={'blue'}
                         width={5}
                     >
                         {/* do not abtract due to local state (unless we transition to using redux store) */}
@@ -121,14 +122,20 @@ class GamePage extends Component {
                 {/* contains the players table and action buttons */}
                 <Grid.Row
                     style={{ height: '20vh' }}
-                    color={'yellow'}
+                // color={'yellow'}
                 >
                     {/* players table column */}
-                    <Grid.Column width={11} color={'black'}>
+                    <Grid.Column
+                        width={11}
+                        color={'black'}
+                    >
                     </Grid.Column>
 
                     {/* action buttons column */}
-                    <Grid.Column width={5} color={'grey'}>
+                    <Grid.Column
+                        width={5}
+                    // color={'grey'}
+                    >
                         <Grid.Row style={{ height: '50%' }}>
                             <BuildBtn />
                             <TradeBtn />
