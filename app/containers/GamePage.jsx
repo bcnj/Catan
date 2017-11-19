@@ -7,6 +7,10 @@ import { Menu, Segment } from 'semantic-ui-react'
 import Tiles from '../components/Tiles'
 import Intersections from '../components/Intersections'
 import Roads from '../components/Roads'
+import PlayerTab from '../components/PlayerTab'
+import MessageTab from '../components/MessageTab'
+import LogTab from '../components/LogTab'
+
 
 class GamePage extends Component {
 
@@ -50,8 +54,14 @@ class GamePage extends Component {
 
     render() {
 
+        //controls which panel tab appears based on menu selection
+        let section;
+        if (this.state.activeItem === 'players') { section = <PlayerTab />; }
+        if (this.state.activeItem === 'messages') { section = <MessageTab />; }
+        if (this.state.activeItem === 'log') { section = <LogTab />; }
+        
         const { activeItem } = this.state
-
+        
         return (
 
             <Grid padded>
@@ -67,7 +77,7 @@ class GamePage extends Component {
                     >
                         <Stage
                             ref={(thisStage) => { this.stage = thisStage; }}
-                            onWheel={(e) => { handleWheel(e, this.stage); }}
+                            onWheel={(e) => { this.handleWheel(e, this.stage); }}
                             width={700}
                             height={640}
                             draggable={true}
@@ -93,9 +103,9 @@ class GamePage extends Component {
                             </Menu.Menu>
                         </Menu>
 
-                        <Segment>
-                            {/* <img src='/assets/images/wireframe/media-paragraph.png' /> */}
-                        </Segment>
+                        {/* section depends on menu selection */}
+                        {section}
+
                     </Grid.Column>
                 </Grid.Row>
 
