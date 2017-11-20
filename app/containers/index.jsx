@@ -17,9 +17,10 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 export default () => (
   <Router>
     <div>
-      <nav>
+      <div className='background-overlay' />
+      {/* <nav>
         <WhoAmI auth={auth} />
-      </nav>
+      </nav> */}
       <Switch>
         <Route exact path='/' component={Welcome} />
         <Route exact path='/game' component={GamePage} />
