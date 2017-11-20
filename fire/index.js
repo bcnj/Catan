@@ -1,23 +1,18 @@
-const firebase = require('firebase')
+import firebase from 'firebase'
+// import 'firebase/firestore' // add this to use Firestore
 
-// -- // -- // -- // Firebase Config // -- // -- // -- //
-const config = {
-  apiKey: "AIzaSyDZEQfSWwPb_RyJ060TRQrLgZEhOskmBZ8",
-  authDomain: "catan-45cf4.firebaseapp.com",
-  databaseURL: "catan-45cf4",
-  projectId: "catan-45cf4",
-  storageBucket: "catan-45cf4.appspot.com",
-  messagingSenderId: "387625127091"
+export const config = {
+  apiKey: 'AIzaSyDZEQfSWwPb_RyJ060TRQrLgZEhOskmBZ8',
+  authDomain: 'catan-45cf4.firebaseapp.com',
+  databaseURL: 'https://catan-45cf4.firebaseio.com/',
+  projectId: 'catan-45cf4',
+  storageBucket: 'catan-45cf4.appspot.com',
+  messagingSenderId: '387625127091'
 }
-// -- // -- // -- // -- // -- // -- // -- // -- // -- //
 
-// Initialize the app, but make sure to do it only once.
-//   (We need this for the tests. The test runner busts the require
-//   cache when in watch mode; this will cause us to evaluate this
-//   file multiple times. Without this protection, we would try to
-//   initialize the app again, which causes Firebase to throw.
-//
-//   This is why global state makes a sad panda.)
 firebase.__bonesApp || (firebase.__bonesApp = firebase.initializeApp(config))
+// firebase.firestore()
 
 module.exports = firebase
+// databaseURL: "catan-45cf4",
+// databaseURL: 'https://catan-45cf4.firebaseio.com/',

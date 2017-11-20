@@ -4,10 +4,12 @@ import 'firebase/firestore'
 const db = firebase.firestore()
 import { Header, Button, Dropdown, Menu } from 'semantic-ui-react'
 const auth = firebase.auth()
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
 
 const colorOption = [{text: 'red', value: 'red'}, {text: 'white', value: 'white'}, {text: 'blue', value: 'blue'}, {text: 'yellow', value: 'yellow'}]
 
-export default class Wait extends Component {
+class Wait extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -55,3 +57,7 @@ export default class Wait extends Component {
     )
   }
 }
+
+// const mapState = (state, ownProps) => ({
+//   allGames: state.firestore.games
+// })
