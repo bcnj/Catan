@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Segment, Form, Container } from 'semantic-ui-react';
+import { Segment, Grid, Form, Container } from 'semantic-ui-react';
 
 class MessageTab extends Component {
 
@@ -21,22 +21,27 @@ class MessageTab extends Component {
 
         return (
             <Container style={{ height: '90%' }} >
-                <Segment style={{ height: '90%' }}>
+                <Segment style={{ height: '80%' }}>
                     {/* all chat messages should appear in here */}
                 </Segment>
 
-                <Form onSubmit={this.handleMessageSubmit}>
-                    <Form.Group>
+                <Form
+                    style={{ height: '20%' }}
+                    onSubmit={this.handleMessageSubmit}
+                    widths={false}
+                >
+                    <Form.Group >
                         <Form.Input
                             placeholder='Message'
                             message='message'
                             value={message}
                             onChange={this.handleMessageChange}
                         />
-                        <Form.Button content='Submit' />
+
+                        <Form.Button content='Submit'/>
                     </Form.Group>
-                </Form>
-            </Container>
+                </Form >
+            </Container >
         )
     }
 };

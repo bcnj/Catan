@@ -85,18 +85,20 @@ class GamePage extends Component {
                         width={11}
                     >
                         {/*do not abtract stage as separate component due to zoom and panning functions */}
-                        <Stage
-                            ref={(thisStage) => { this.stage = thisStage; }}
-                            onWheel={(e) => { this.handleWheel(e, this.stage); }}
-                            width={700}
-                            height={640}
-                            draggable={true}
-                            style={{ position: 'relative' }}
-                        >
-                            <Tiles />
-                            <Intersections />
-                            <Roads />
-                        </Stage>
+                        <div style={{ display: 'flex' }}>
+                            <Stage
+                                ref={(thisStage) => { this.stage = thisStage; }}
+                                onWheel={(e) => { this.handleWheel(e, this.stage); }}
+                                width={700}
+                                height={640}
+                                draggable={true}
+                                style={{ position: 'relative', flexGrow: '1' }}
+                            >
+                                <Tiles />
+                                <Intersections />
+                                <Roads />
+                            </Stage>
+                        </div>
                     </Grid.Column>
 
                     {/* right-side panel column */}
@@ -129,7 +131,7 @@ class GamePage extends Component {
                     {/* players table column */}
                     <Grid.Column
                         width={11}
-                        // color={'red'}
+                    // color={'red'}
                     >
                         <PlayerTable />
                     </Grid.Column>
@@ -144,7 +146,7 @@ class GamePage extends Component {
                             <TradeBtn />
                         </Grid.Row>
 
-                        <Grid.Row style={{ height: '50%' }} verticalAlign={top}>
+                        <Grid.Row style={{ height: '50%' }}>
                             <DevCardBtn />
                             <EndTurnBtn />
                         </Grid.Row>
