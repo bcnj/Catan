@@ -16,6 +16,8 @@ import DevCardBtn from '../components/DevCardBtn'
 import EndTurnBtn from '../components/EndTurnBtn'
 import TradeBtn from '../components/TradeBtn'
 
+import PlayerTable from '../components/PlayerTable'
+
 class GamePage extends Component {
 
     constructor(props) {
@@ -127,8 +129,9 @@ class GamePage extends Component {
                     {/* players table column */}
                     <Grid.Column
                         width={11}
-                        color={'black'}
+                        // color={'red'}
                     >
+                        <PlayerTable />
                     </Grid.Column>
 
                     {/* action buttons column */}
@@ -136,12 +139,12 @@ class GamePage extends Component {
                         width={5}
                     // color={'grey'}
                     >
-                        <Grid.Row style={{ height: '50%' }}>
+                        <Grid.Row style={{ height: '50%', verticalAlign: 'top' }} >
                             <BuildBtn />
                             <TradeBtn />
                         </Grid.Row>
 
-                        <Grid.Row style={{ height: '50%' }}>
+                        <Grid.Row style={{ height: '50%' }} verticalAlign={top}>
                             <DevCardBtn />
                             <EndTurnBtn />
                         </Grid.Row>
