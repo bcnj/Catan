@@ -4,7 +4,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 // import { firestoreConnect } from 'react-redux-firebase'
 import { firebaseConnect } from 'react-redux-firebase'
-import firebase from 'APP/fire'
+// import firebase from 'APP/fire'
 
 class Lobby extends Component {
   constructor(props) {
@@ -20,13 +20,15 @@ class Lobby extends Component {
   //   })
   // }
 
-  componentDidMount() {
-    this.props.firebase.set('games', {here: 'is a value'})
-    this.props.firebase.set('catan', {here: 'is a value'})
-  }
+  // componentDidMount() {
+  //   this.props.firebase.set('games', {here: 'is a value'})
+  //   this.props.firebase.set('catan', {here: 'is a value'})
+  // }
 
   render() {
-    console.log(typeof firebase.database)
+    console.log(typeof this.props.firebase.database)
+    console.log(this.props.firebase)
+    console.log(this.props.firebase.data)
 
     return (
     <div>
@@ -37,11 +39,11 @@ class Lobby extends Component {
   }
 }
 
-// const mapState = (state, ownProps) => ({
-//   allGames: state.firebase.catan
-// })
+const mapState = (state, ownProps) => ({
+  firebase: state.firebase
+})
 
-// const fbLobby = firebaseConnect([{path: 'catan'}])(Lobby)
-// export default connect(mapState)(fbLobby)
+const fbLobby = firebaseConnect(['catan'])(Lobby)
+export default connect(mapState)(fbLobby)
 
-export default firebaseConnect()(Lobby)
+// export default firebaseConnect()(Lobby)
