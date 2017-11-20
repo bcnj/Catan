@@ -3,20 +3,20 @@ import { Link } from 'react-router-dom'
 import { Stage } from 'react-konva'
 import { Container, Grid, Button, Menu, Segment } from 'semantic-ui-react'
 
-import Tiles from '../components/Tiles'
-import Intersections from '../components/Intersections'
-import Roads from '../components/Roads'
+import Tiles from '../components/GamePage/Tiles'
+import Intersections from '../components/GamePage/Intersections'
+import Roads from '../components/GamePage/Roads'
 
-import PlayerTab from '../components/PlayerTab'
-import MessageTab from '../components/MessageTab'
-import LogTab from '../components/LogTab'
+import PlayerTab from '../components/GamePage/PlayerTab'
+import MessageTab from '../components/GamePage/MessageTab'
+import LogTab from '../components/GamePage/LogTab'
 
-import BuildBtn from '../components/BuildBtn'
-import DevCardBtn from '../components/DevCardBtn'
-import EndTurnBtn from '../components/EndTurnBtn'
-import TradeBtn from '../components/TradeBtn'
+import BuildBtn from '../components/GamePage/BuildBtn'
+import DevCardBtn from '../components/GamePage/DevCardBtn'
+import EndTurnBtn from '../components/GamePage/EndTurnBtn'
+import TradeBtn from '../components/GamePage/TradeBtn'
 
-import PlayerTable from '../components/PlayerTable'
+import PlayerTable from '../components/GamePage/PlayerTable'
 
 class GamePage extends Component {
 

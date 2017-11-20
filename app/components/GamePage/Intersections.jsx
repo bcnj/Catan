@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Layer, Circle } from 'react-konva';
+import { buildSettlement, buildCity } from '../../store';
 
 const Intersections = (props) => {
+
+    console.log('==========', props.p1_settlement);
+
+    let color;
+    if (props.p1_settlement) { color = 'green' }
+    else { color = 'transparent' }
+    if (props.p1_city) { color = 'red' }
 
     return (
         <Layer>
@@ -10,8 +19,9 @@ const Intersections = (props) => {
                 x={250}
                 y={95}
                 radius={10}
-                fill={'black'}
+                fill={color}
                 shadowBlur={5}
+                onClick={(e) => props.intersectionClickHandler(e, props.p1_settlement, props.p1_city)}
             />
             <Circle
                 x={350}
@@ -410,4 +420,20 @@ const Intersections = (props) => {
     );
 };
 
-export default Intersections;
+const mapState = (state) => {
+    return {
+        p1_settlement: state.p1_settlement,
+        p1_city: state.p1_city,
+    };
+};
+
+const mapDispatch = (dispatch) => {
+    return {
+        intersectionClickHandler: function(e, p1_settlement, p1_city) {
+            if (!p1_settlement) {dispatch(buildSettlement())}
+            else if (!p1_city) {dispatch(buildCity())}
+         }
+    };
+};
+
+export default connect(mapState, mapDispatch)(Intersections);
