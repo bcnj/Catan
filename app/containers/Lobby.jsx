@@ -14,12 +14,17 @@ export default class Lobby extends Component {
   }
 
   componentDidMount() {
+    db.collection('games')
+    .onSnapshot(docs => {
+      docs.forEach(doc => {
+        this.setState({allGames: [...this.state.allGames, doc.data()]})
+      })
+    })
   }
 
   render() {
     return (
     <div>
-      <div>Hello</div>
       <IndividualRoom allGames={this.state.allGames} />
     </div>
     )

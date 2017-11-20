@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react'
 
 import Welcome from './Welcome'
 import Lobby from './Lobby'
-import Room from './Room'
+import Wait from './Wait'
 import GamePage from './GamePage'
 import firebase from 'APP/fire'
 const auth = firebase.auth()
@@ -24,7 +24,7 @@ export default () => (
         <Route exact path='/' component={Welcome} />
         <Route exact path='/game' component={GamePage} />
         <Route path='/lobby' component={Lobby} />
-        <Route path='/room/:roomId' component={Room} />
+        <Route path='/room/wait/:roomId' component={Wait} />
       </Switch>
     </div>
   </Router>

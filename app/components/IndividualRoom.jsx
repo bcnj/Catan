@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 export default ({allGames}) => (
   <Card.Group>
-    {console.log('!!!!!', allGames)}
 
-    {/* { allGames.map(game =>
-        <Card id={game.id}>
+    { allGames.map(game =>
+        <Card key={game.id}>
           <Card.Content>
             <Card.Header>
               Game {game.id}
@@ -16,12 +16,13 @@ export default ({allGames}) => (
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <div className='ui two buttons'>
-              <Button basic color='green'>Join</Button>
-              <Button basic color='red'>Watch</Button>
+            <div>
+              <Link to={`/room/wait/${game.id}`}>
+                <Button basic color='green'>Join</Button>
+              </Link>
             </div>
           </Card.Content>
         </Card>
-    )} */}
+    )}
   </Card.Group>
 )
